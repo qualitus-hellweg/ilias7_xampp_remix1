@@ -1,0 +1,58 @@
+1) download new "PORTABLE" images from apachefriends:
+https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/
+
+2) extract and move(!!!) xampp-folder to  C:\ 
+
+3) apache, switch to ports 8080, 8081
+edit C:\xampp\apache\conf\http.conf
+change: "Listen 80" to "Listen 8080"
+
+edit: C:\xampp\apache\conf\extra\httpd-ssl.conf
+change: "Listen 443" to "Listen 8081"
+
+4) copy tools-folder from old remix to c:\wampp 
+
+5) create webspace-dir 
+mkdir c:\xampp\htdocs\my
+
+6a) clone new ilias
+cd \xampp\htdocs\my
+git clone --branch=release_7 https://github.com/ILIAS-eLearning/ILIAS.git ilias
+
+6b) composer for ilias
+cd ilias
+composer install
+
+6c) delete .git dir in ilias
+cd \xampp\htdocs\my\ilias
+rmdir /s /q .git
+
+
+7) xampp start services, use phpmyadmin to install the db
+http://localhost:8080/phpmyadmin/
+CREATE DATABASE ilias CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL ON ilias.* TO ilias@'localhost' IDENTIFIED BY 'ilias';
+
+
+
+8) install ilias
+- copy ilias-setup.json from remix-folder to ilias-directory C:\xampp\htdocs\my\ilias
+\xampp\php\php setup\setup.php install ilias-setup.json
+
+- (if needed) php-extensions are here:
+edit: C:\xampp\php\php.ini uncomment the extensions (delete leading ";")
+zB 
+";extension=xsl"  => "extension=xsl"
+
+
+all Commands for "cmd.exe"
+mkdir c:\xampp\htdocs\my
+cd \xampp\htdocs\my
+git clone --branch=release_7 https://github.com/ILIAS-eLearning/ILIAS.git ilias
+
+ilias
+composer install
+rmdir /s /q .git
+
+mysql --user=root -e "CREATE DATABASE ilias CHARACTER SET utf8 COLLATE utf8_general_ci;"
+mysql --user=root -e "GRANT ALL ON ilias.* TO ilias@'localhost' IDENTIFIED BY 'ilias';"

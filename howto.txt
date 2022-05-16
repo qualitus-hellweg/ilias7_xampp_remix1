@@ -1,0 +1,46 @@
+Installation vom "eigenen Internet"
+- zip Datei Herunterladen
+- zip Datei entpacken
+- xampp Ordner nach C:\ verschieben(!!!), nicht kopieren(das sind >50.000 Dateien)
+- C:\xampp öffnen und für die Datei "xampp-control" eine Verknüpfung auf dem Desktop anlegen
+- ilias data und errorlog folder erzeugen(mit "cmd.exe")
+mkdir %USERPROFILE%\ilias-data
+mkdir %USERPROFILE%\ilias-error
+- in der datei: C:\xampp\htdocs\my\ilias\ilias.ini.php
+alle Vorkommen von "chellweg" durch Deinen account ersetzen, 
+unter: [client] => datadir
+unter: [log]  => path, error_path
+
+
+Um das "eigene internet" täglich zu nutzen
+- xampp-control per Doppelklick starten und im "Kontrollcenter" die beiden Services apache und mysql starten
+
+Ilias-URL:
+http://localhost:8080/my/ilias 
+user: "root"
+passwort: "qualitus"
+
+Ilias-Plugins installieren:
+plugin im gitlab als zip herunterladen und den inhalt an eine spezielle stelle(je nach plugin) kopieren,
+wenn in der plugin installation steht: 
+"Copy the content of this folder in <ILIAS_directory>/Customizing/..."
+dann bezieht sich das ILIAS_DIRECTORY auf: C:\xampp\htdocs\my\ilias\  
+
+Ilias Uploads von Lernmodulen:
+Leider habe ich keine ordentlichen "zip" Shellbefehle finden können.
+Wenn man trotzdem Lernmodule importieren möchte, dann geht das mit folgendem Trick:
+- Lernmodul auspacken
+- manifest in ilias importieren(und nur das manifest)
+- Ordner im ilias suchen: 
+  die lernmodule werden vom ilias hier abgespeichert: 
+C:\xampp\htdocs\my\ilias\data\test\lm_data
+  einfach die ausgepackten Lernmodul-Dateien in das erstellte Dir kopieren und dann ist das im ilias verfügbar
+
+
+den xampp-webspace selber nutzen:
+phpmyadmin: http://localhost:8080/phpmyadmin/index.php 
+
+webspace:   http://localhost:8080/my/ 
+      oder https://localhost:8081/my/     (da ist aber kein zertifkat hinterlegt!!!)
+dateisystem  C:\xampp\htdocs\my\
+mysql: user: "root"; passwort: "" (leer)

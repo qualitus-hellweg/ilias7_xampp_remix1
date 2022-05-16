@@ -1,0 +1,37 @@
+{
+	"common" : {
+		"client_id" : "test"
+	},
+	"database" : {
+		"user" : "ilias",
+		"password" : "ilias"
+	},
+	"filesystem" : {
+		"data_dir" : "C:/Users/chellweg/ilias-data"
+	},
+	"http" : {
+		"path" : "http://localhost:8080/my/ilias/"
+	},
+    "language" : {
+        "default_language" : "de",
+        "install_languages" : ["de"]
+    },
+    "logging" : {
+        "enable" : true,
+        "path_to_logfile" : "C:/Users/chellweg/ilias-error/errorlog.txt",
+        "errorlog_dir" : "C:/Users/chellweg/ilias-error"
+    },
+	"systemfolder" : {
+		"contact" : {
+			"firstname" : "Richard",
+			"lastname" : "Klees",
+			"email" : "richard.klees@concepts-and-training.de"
+		}
+	},
+    "utilities" : {
+        "path_to_convert" : "C:/xampp/tools/ImageMagick/convert.exe",
+        "path_to_zip" : "C:/xampp/tools/zip/zip.exe",
+        "path_to_unzip" : "C:/xampp/tools/unzip/unzip.exe"
+    }
+}
+
